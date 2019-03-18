@@ -1,0 +1,18 @@
+version: '3.1'
+
+networks:
+  private:
+    driver: bridge
+
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    container_name: mongo
+    networks:
+      - private
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: mongo
